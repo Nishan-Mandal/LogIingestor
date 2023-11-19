@@ -6,15 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pick List Example</title>
-  
+
   <script src="script.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- Horizontal container for select and input -->
+  <h4>Note : Query will be made only with the filters which are selected in blue.
+    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp If multiple filters are applied, all the filters will
+    follow "AND" rule.
+  </h4>
+  
   <div class="horizontal-container">
-    <input type="checkbox">
+    <input type="checkbox" checked="true">
     <label for="0">level</label>
 
     <select id="levelOperator" name="levelOperator" style="margin-left: 100px">
@@ -22,15 +26,15 @@
       <option value="!=">!=</option>
       <option value=">">></option>
       <option value="&lt;">&lt;</option>
-      <option value="IN">IN</option>
+      <option value="CONTAINS">CONTAINS</option>
     </select>
 
-    <!-- Text field after the picklist -->
+    
     <input type="text" id="levelText" name="levelText" placeholder="Enter text">
   </div>
 
 
-  <!-- Horizontal container for select and input -->
+  
   <div class="horizontal-container">
     <input type="checkbox">
     <label for="1">message</label>
@@ -40,15 +44,15 @@
       <option value="!=">!=</option>
       <option value=">">></option>
       <option value="&lt;">&lt;</option>
-      <option value="IN">IN</option>
+      <option value="CONTAINS">CONTAINS</option>
     </select>
 
-    <!-- Text field after the picklist -->
+    
     <input type="text" id="messageText" name="messageText" placeholder="Enter text">
   </div>
 
 
-  <!-- Horizontal container for select and input -->
+  
   <div class="horizontal-container">
     <input type="checkbox">
     <label for="2">resourceId</label>
@@ -58,52 +62,56 @@
       <option value="!=">!=</option>
       <option value=">">></option>
       <option value="&lt;">&lt;</option>
-      <option value="IN">IN</option>
+      <option value="CONTAINS">CONTAINS</option>
     </select>
 
-    <!-- Text field after the picklist -->
+    
     <input type="text" id="resourceIdOperatorText" name="resourceIdOperatorText" placeholder="Enter text">
   </div>
 
 
 
-  <!-- Horizontal container for select and input -->
+  
   <div class="horizontal-container">
     <input type="checkbox">
     <label for="3">timestamp</label>
 
-    <select id="timestampOperator" name="timestampOperator" style="margin-left: 64px">
+    <select id="timestampOperator" name="timestampOperator" style="margin-left: 64px"
+      onchange="handleOperatorChange(this)">
       <option value="==">==</option>
       <option value="!=">!=</option>
       <option value=">">></option>
       <option value="&lt;">&lt;</option>
-      <option value="IN">IN</option>
+      <option value="CONTAINS">CONTAINS</option>
+      <option value="BETWEEN">BETWEEN</option>
     </select>
 
-    <!-- Text field after the picklist -->
-    <input type="text" id="timestampText" name="timestampText" placeholder="Enter text">
+    
+    <div id="timestampTextContainer">
+      <input type="text" id="timestampText" name="timestampText" placeholder="Enter text">
+    </div>
   </div>
 
 
-  <!-- Horizontal container for select and input -->
+  
   <div class="horizontal-container">
     <input type="checkbox">
     <label for="4">traceId</label>
-
     <select id="traceIdOperator" name="traceIdOperator" style="margin-left: 85px">
       <option value="==">==</option>
       <option value="!=">!=</option>
       <option value=">">></option>
       <option value="&lt;">&lt;</option>
-      <option value="IN">IN</option>
+
+      <option value="CONTAINS">CONTAINS</option>
     </select>
 
-    <!-- Text field after the picklist -->
+    
     <input type="text" id="traceIdText" name="traceIdText" placeholder="Enter text">
   </div>
 
 
-  <!-- Horizontal container for select and input -->
+  
   <div class="horizontal-container">
     <input type="checkbox">
     <label for="5">spanId</label>
@@ -113,16 +121,16 @@
       <option value="!=">!=</option>
       <option value=">">></option>
       <option value="&lt;">&lt;</option>
-      <option value="IN">IN</option>
+      <option value="CONTAINS">CONTAINS</option>
     </select>
 
-    <!-- Text field after the picklist -->
+    
     <input type="text" id="spanIdText" name="spanIdText" placeholder="Enter text">
   </div>
 
 
 
-  <!-- Horizontal container for select and input -->
+  
   <div class="horizontal-container">
     <input type="checkbox">
     <label for="6">commit</label>
@@ -132,14 +140,14 @@
       <option value="!=">!=</option>
       <option value=">">></option>
       <option value="&lt;">&lt;</option>
-      <option value="IN">IN</option>
+      <option value="CONTAINS">CONTAINS</option>
     </select>
 
-    <!-- Text field after the picklist -->
+    
     <input type="text" id="commitText" name="commitText" placeholder="Enter text">
   </div>
 
-  <!-- Horizontal container for select and input -->
+  
   <div class="horizontal-container">
     <input type="checkbox">
     <label for="7">parentResourceId</label>
@@ -149,16 +157,26 @@
       <option value="!=">!=</option>
       <option value=">">></option>
       <option value="&lt;">&lt;</option>
-      <option value="IN">IN</option>
+      <option value="CONTAINS">CONTAINS</option>
     </select>
 
-    <!-- Text field after the picklist -->
+
     <input type="text" id="parentResourceIdText" name="parentResourceIdText" placeholder="Enter text">
   </div>
-  <button type="button" onclick="buildConditionsArray()">Query</button>
 
+  <button type="button" class="large-button" onclick="buildConditionsArray()">Query</button>
 
+  <h4>Anvanced Query: This will give all the rows which contains below text from database</h4>
+  <h5>Note: IF dataset is too large it might takes few more seconds because it's finding all the matched result in whole database</h5>
+  <div class="horizontal-container">
+    <input type="text" id="globalText" name="Enter text" placeholder="Enter text">
+    <button type="button" onclick="advancedQuery()">Query</button>
+  </div>
 
+  <p id="message"></p>
+
+  <h2>Response Table:</h2>
+  <table id="responseTable"></table>
 </body>
 
 </html>

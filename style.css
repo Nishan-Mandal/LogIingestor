@@ -2,7 +2,7 @@ html, body {
     height: 100%;
     width: 100%;
 }
-/* Style to display items horizontally */
+
 .horizontal-container {
 display: flex;
 align-items: center;
@@ -12,7 +12,33 @@ align-items: center;
 margin-left: 20px;
 }
 
-/* Margin between the select and input */
 select,input {
 margin-right: 10px;
+}
+
+.large-button {
+    width: 100px; 
+    height: 30px; 
+    font-size: 16px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+#message {
+    color: red;
 }
