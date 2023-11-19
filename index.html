@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pick List Example</title>
+  
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Horizontal container for select and input -->
+  <div class="horizontal-container">
+    <input type="checkbox">
+    <label for="0">level</label>
+
+    <select id="levelOperator" name="levelOperator" style="margin-left: 100px">
+      <option value="==">==</option>
+      <option value="!=">!=</option>
+      <option value=">">></option>
+      <option value="&lt;">&lt;</option>
+      <option value="IN">IN</option>
+    </select>
+
+    <!-- Text field after the picklist -->
+    <input type="text" id="levelText" name="levelText" placeholder="Enter text">
+  </div>
+
+
+  <!-- Horizontal container for select and input -->
+  <div class="horizontal-container">
+    <input type="checkbox">
+    <label for="1">message</label>
+
+    <select id="messageOperator" name="messageOperator" style="margin-left: 77px">
+      <option value="==">==</option>
+      <option value="!=">!=</option>
+      <option value=">">></option>
+      <option value="&lt;">&lt;</option>
+      <option value="IN">IN</option>
+    </select>
+
+    <!-- Text field after the picklist -->
+    <input type="text" id="messageText" name="messageText" placeholder="Enter text">
+  </div>
+
+
+  <!-- Horizontal container for select and input -->
+  <div class="horizontal-container">
+    <input type="checkbox">
+    <label for="2">resourceId</label>
+
+    <select id="resourceIdOperator" name="resourceIdOperator" style="margin-left: 64px">
+      <option value="==">==</option>
+      <option value="!=">!=</option>
+      <option value=">">></option>
+      <option value="&lt;">&lt;</option>
+      <option value="IN">IN</option>
+    </select>
+
+    <!-- Text field after the picklist -->
+    <input type="text" id="resourceIdOperatorText" name="resourceIdOperatorText" placeholder="Enter text">
+  </div>
+
+
+
+  <!-- Horizontal container for select and input -->
+  <div class="horizontal-container">
+    <input type="checkbox">
+    <label for="3">timestamp</label>
+
+    <select id="timestampOperator" name="timestampOperator" style="margin-left: 64px">
+      <option value="==">==</option>
+      <option value="!=">!=</option>
+      <option value=">">></option>
+      <option value="&lt;">&lt;</option>
+      <option value="IN">IN</option>
+    </select>
+
+    <!-- Text field after the picklist -->
+    <input type="text" id="timestampText" name="timestampText" placeholder="Enter text">
+  </div>
+
+
+  <!-- Horizontal container for select and input -->
+  <div class="horizontal-container">
+    <input type="checkbox">
+    <label for="4">traceId</label>
+
+    <select id="traceIdOperator" name="traceIdOperator" style="margin-left: 85px">
+      <option value="==">==</option>
+      <option value="!=">!=</option>
+      <option value=">">></option>
+      <option value="&lt;">&lt;</option>
+      <option value="IN">IN</option>
+    </select>
+
+    <!-- Text field after the picklist -->
+    <input type="text" id="traceIdText" name="traceIdText" placeholder="Enter text">
+  </div>
+
+
+  <!-- Horizontal container for select and input -->
+  <div class="horizontal-container">
+    <input type="checkbox">
+    <label for="5">spanId</label>
+
+    <select id="spanIdOperator" name="spanIdOperator" style="margin-left: 87px">
+      <option value="==">==</option>
+      <option value="!=">!=</option>
+      <option value=">">></option>
+      <option value="&lt;">&lt;</option>
+      <option value="IN">IN</option>
+    </select>
+
+    <!-- Text field after the picklist -->
+    <input type="text" id="spanIdText" name="spanIdText" placeholder="Enter text">
+  </div>
+
+
+
+  <!-- Horizontal container for select and input -->
+  <div class="horizontal-container">
+    <input type="checkbox">
+    <label for="6">commit</label>
+
+    <select id="commitOperator" name="commitOperator" style="margin-left: 80px">
+      <option value="==">==</option>
+      <option value="!=">!=</option>
+      <option value=">">></option>
+      <option value="&lt;">&lt;</option>
+      <option value="IN">IN</option>
+    </select>
+
+    <!-- Text field after the picklist -->
+    <input type="text" id="commitText" name="commitText" placeholder="Enter text">
+  </div>
+
+  <!-- Horizontal container for select and input -->
+  <div class="horizontal-container">
+    <input type="checkbox">
+    <label for="7">parentResourceId</label>
+
+    <select id="parentResourceIdOperator" name="parentResourceIdOperator" style="margin-left: 16px">
+      <option value="==">==</option>
+      <option value="!=">!=</option>
+      <option value=">">></option>
+      <option value="&lt;">&lt;</option>
+      <option value="IN">IN</option>
+    </select>
+
+    <!-- Text field after the picklist -->
+    <input type="text" id="parentResourceIdText" name="parentResourceIdText" placeholder="Enter text">
+  </div>
+  <button type="button" onclick="buildConditionsArray()">Query</button>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+/* Style to display items horizontally */
+.horizontal-container {
+display: flex;
+align-items: center;
+}
+
+#fruitPicker {
+margin-left: 20px;
+}
+
+/* Margin between the select and input */
+select,input {
+margin-right: 10px;
+}
